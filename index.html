@@ -3,31 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
+<!-- 
+    Added jquery -->
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+</script>
+
+<script>
+    $(document).ready(function(){
+        let intro  = "Hello Kartik !";
+        $("#hi").html(intro);
+        
+       
+    });
+
+
+</script>
+
+<script>
+    function book(name){
+        let item = document.querySelector("#items");
+        item.remove(1); // index used in remove function
+        item.remove(0);
+        let opt1 = document.createElement("option");
+        let opt2 = document.createElement("option");
+
+
+        if(name ==="Books"){
+        let a = "Real Java";
+        let b = "Let Us C";
+        opt1.text = a;
+        opt2.text = b;
+        item.append(opt1);
+        item.append(opt2);
+    }
+
+        else if(name ==="Laptop"){
+        let a = "DELL";
+        let b = "HP";
+        opt1.text = a;
+        opt2.text = b;
+        item.append(opt1);
+        item.append(opt2);
+        
+        }
+        
+    }
+    function lap(){
+        let item = document.querySelector("#items");
+        let opt = document.createElement("option");
+        opt.value = item.value;
+        item.append(opt);
+        alert("Hi");
+    }
+</script>
 
 
 </head>
 <body>
     <form action="" id="frm">
+        <h1 id="hi">*</h1>
         <h1>LIST CART PROJECT</h1>
 
-        <select name="" id="">
+        <select name="" id="porduct" onchange="book(this.value)">
             <option value="" selected>select</option>
-            <option onselect ="">Books</option>
-            <option onselect = "" >Laptop</option>
+            <option id ="book" value="Books" >Books</option>
+            <option id="laptop" value="Laptop">Laptop</option>
         </select>
 
         <table>
             <tr>
                 <td>Types</td>
                 <td>
-                    <select name="" id="items">
-                        <option value="">none</option>
+                    <select name="" value="k" id="items">
+                        <option value="" disabled>none</option>
                     </select>
                 </td>
                 <td>Prices</td>
