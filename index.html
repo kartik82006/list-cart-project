@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-<!-- 
-    Added jquery -->
+<!-- Added jquery -->
     <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -26,31 +25,71 @@
 
 <script>
     function book(name){
-        let item = document.querySelector("#items");
-        item.remove(1); // index used in remove function
-        item.remove(0);
-        let opt1 = document.createElement("option");
-        let opt2 = document.createElement("option");
+        let indx = name.selectedIndex;
+        alert(indx);
 
+        if(indx==1){
+            //alert("h");
+            let item = ["HP","Dell"];
+            let price = ["50000","450000"];
+            //alert(indx);
+            let items = document.querySelector("#items");
+            let prices = document.querySelector("#prices");
 
-        if(name ==="Books"){
-        let a = "Real Java";
-        let b = "Let Us C";
-        opt1.text = a;
-        opt2.text = b;
-        item.append(opt1);
-        item.append(opt2);
-    }
-
-        else if(name ==="Laptop"){
-        let a = "DELL";
-        let b = "HP";
-        opt1.text = a;
-        opt2.text = b;
-        item.append(opt1);
-        item.append(opt2);
+            for(i=0;i<2;i++){     
+                let opt = document.createElement("option");
+                let optp = document.createElement("option");
+                opt.text = item[i];
+                optp.text = price[i];
+                items.append(opt);
+                prices.append(optp);
+        }
+       
         
         }
+        else if(indx==2){
+            alert(hi);
+            let item = ["Real Java","Let Us C"];
+            let price = ["500","450"];
+            //alert(indx);
+            let items = document.querySelector("#items");
+            let prices = document.querySelector("#prices");
+            
+            for(i=0;i<2;i++){
+                let opt = document.createElement("option");
+                let optp = document.createElement("option");
+                opt.text = item[i];
+                optp.text = price[i];
+                items.append(opt);
+        prices.append(optp);
+                }
+
+            }
+    //     let item = document.querySelector("#items");
+    //     item.remove(1); // index used in remove function
+    //     item.remove(0);
+    //     let opt1 = document.createElement("option");
+    //     let opt2 = document.createElement("option");
+
+
+    //     if(name ==="Books"){
+    //     let a = "Real Java";
+    //     let b = "Let Us C";
+    //     opt1.text = a;
+    //     opt2.text = b;
+    //     item.append(opt1);
+    //     item.append(opt2);
+    // }
+
+    //     else if(name ==="Laptop"){
+    //     let a = "DELL";
+    //     let b = "HP";
+    //     opt1.text = a;
+    //     opt2.text = b;
+    //     item.append(opt1);
+    //     item.append(opt2);
+        
+    //     }
         
     }
     function lap(){
@@ -69,7 +108,7 @@
         <h1 id="hi">*</h1>
         <h1>LIST CART PROJECT</h1>
 
-        <select name="" id="porduct" onchange="book(this.value)">
+        <select name="" id="product" onchange="book(this)">
             <option value="" selected>select</option>
             <option id ="book" value="Books" >Books</option>
             <option id="laptop" value="Laptop">Laptop</option>
